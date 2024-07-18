@@ -167,7 +167,7 @@ ED_STOP = "Stop"
 ED_CONTINUE = "Continue"
 ED_SKIP = "Skip"
 
-
+raise RuntimeError("UI element")
 class PipelineController(object):
     """Controls the pipeline through the UI
 

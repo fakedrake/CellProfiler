@@ -32,8 +32,8 @@ See also **NamesAndTypes**.
 import os
 import os.path
 
-import bioformats.formatwriter
-import bioformats.omexml
+# import bioformats.formatwriter
+# import bioformats.omexml
 import cellprofiler_core.utilities.pathname
 import h5py
 import numpy
@@ -350,7 +350,7 @@ rescaled.
 {BIT_DEPTH_16} and {BIT_DEPTH_FLOAT} images are supported only for
 TIFF formats.
 
-Note: Opening exported multichannel 16-bit TIFF stacks in ImageJ may require  
+Note: Opening exported multichannel 16-bit TIFF stacks in ImageJ may require
 the BioFormats Importer plugin due to the compression method used by
 CellProfiler.""".format(
                 **{"BIT_DEPTH_FLOAT": BIT_DEPTH_FLOAT, "BIT_DEPTH_16": BIT_DEPTH_16}
@@ -364,7 +364,7 @@ CellProfiler.""".format(
 *(Used only when saving 2D images as file type tiff)*
 
 Choose whether or not to use lossless compression when saving
-images. This will lead to smaller file sizes, but somewhat longer 
+images. This will lead to smaller file sizes, but somewhat longer
 module execution time.  Note that the value of this setting will
 be ignored when saving 3D tiff images, which have been saved by
 default with compression since CellProfiler 3.1. Do not use for
@@ -380,7 +380,7 @@ multichannel tiff images created as Stacks in GrayToColor."""
 
 This setting determines how planes are saved into a movie/stack.
 Selecting "T" will save planes as a time series. Selecting "Z"
-will save planes as slices in a 3D z-axis. 
+will save planes as slices in a 3D z-axis.
 """,
         )
 
@@ -626,12 +626,15 @@ store images in the subfolder, "*date*\/*plate-name*".""",
         image = workspace.image_set.get_image(self.image_name.value)
         pixels = image.pixel_data
         if self.get_bit_depth() == BIT_DEPTH_8:
+            raise ValueError("Unsupported bioformats")
             pixels = skimage.util.img_as_ubyte(pixels)
             pixel_type = bioformats.omexml.PT_UINT8
         elif self.get_bit_depth() == BIT_DEPTH_16:
+            raise ValueError("Unsupported bioformats")
             pixels = skimage.util.img_as_uint(pixels)
             pixel_type = bioformats.omexml.PT_UINT16
         elif self.get_bit_depth() == BIT_DEPTH_FLOAT:
+            raise ValueError("Unsupported bioformats")
             pixels = skimage.util.img_as_float(pixels).astype(numpy.float32)
             pixel_type = bioformats.omexml.PT_FLOAT
         else:

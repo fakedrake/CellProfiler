@@ -45,7 +45,7 @@ from cellprofiler_core.preferences import set_plugin_directory
 from cellprofiler_core.preferences import set_temporary_directory
 from cellprofiler_core.utilities.core.workspace import is_workspace_file
 from cellprofiler_core.utilities.hdf5_dict import HDF5FileList
-from cellprofiler_core.utilities.java import start_java, stop_java
+# from cellprofiler_core.utilities.java import start_java, stop_java
 from cellprofiler_core.utilities.measurement import load_measurements
 from cellprofiler_core.utilities.zmq import join_to_the_boundary
 from cellprofiler_core.worker import aw_parse_args
@@ -109,7 +109,7 @@ def main(args=None):
         return exit_code
 
     options, args = parse_args(args)
-    
+
     if options.print_version:
         set_headless()
         __version__(exit_code)
@@ -219,8 +219,8 @@ def main(args=None):
         set_data_file(os.path.abspath(options.data_file))
 
     try:
-        if not options.show_gui:
-            start_java()
+        # if not options.show_gui:
+        #     start_java()
 
         if options.image_set_file is not None:
             set_image_set_file(options.image_set_file)
@@ -294,7 +294,7 @@ def stop_cellprofiler():
     # high memory consumption.
     bioformats.formatreader.clear_image_reader_cache()
 
-    stop_java()
+    # stop_java()
 
 
 def parse_args(args):

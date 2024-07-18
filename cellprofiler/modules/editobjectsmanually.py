@@ -324,6 +324,7 @@ supplied by a previous module.
         import wx
         from wx.lib.filebrowsebutton import FileBrowseButton
         from bioformats import load_image
+        raise RuntimeError("Unsupported UI")
 
         with wx.Dialog(None) as dlg:
             dlg.Title = "Choose files for editing"
