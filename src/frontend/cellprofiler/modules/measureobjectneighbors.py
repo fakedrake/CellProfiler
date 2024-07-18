@@ -5,7 +5,7 @@ MeasureObjectNeighbors
 **MeasureObjectNeighbors** calculates how many neighbors each object
 has and records various properties about the neighbors’ relationships,
 including the percentage of an object’s edge pixels that touch a
-neighbor. Please note that the distances reported for object 
+neighbor. Please note that the distances reported for object
 measurements are center-to-center distances, not edge-to-edge distances.
 
 Given an image with objects identified (e.g., nuclei or cells), this
@@ -154,8 +154,8 @@ neighbors:
    any of their boundary pixels are adjacent after expansion.
 -  *%(D_WITHIN)s:* Each object is expanded by the number of pixels you
    specify. Two objects are neighbors if they have adjacent pixels after
-   expansion. Note that *all* objects are expanded by this amount (e.g., 
-   if this distance is set to 10, a pair of objects will count as 
+   expansion. Note that *all* objects are expanded by this amount (e.g.,
+   if this distance is set to 10, a pair of objects will count as
    neighbors if their edges are 20 pixels apart or closer).
 
 For *%(D_ADJACENT)s* and *%(D_EXPAND)s*, the

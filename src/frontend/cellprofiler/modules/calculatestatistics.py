@@ -1,4 +1,4 @@
-"""
+r"""
 CalculateStatistics
 ===================
 
@@ -280,7 +280,7 @@ You will be asked for information on how to save the plots."""
             Text(
                 "Figure prefix",
                 "",
-                doc="""\
+                doc=r"""\
 *(Used only when creating dose-response plots)*
 
 CellProfiler will create a file name by appending the measurement name

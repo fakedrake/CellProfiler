@@ -15,7 +15,7 @@ from cellprofiler_core.utilities.core.object import crop_labels_and_image
 
 from cellprofiler.modules import _help
 
-__doc__ = """
+__doc__ = r"""
 MeasureObjectIntensity
 ======================
 

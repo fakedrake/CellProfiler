@@ -1136,7 +1136,7 @@ to the foreground pixels or the background pixels.
                     squared_normalized_image = (pixel_data - mean_image_value) ** 2
                     if mean_image_value > 0:
                         focus_score = numpy.sum(squared_normalized_image) / (
-                            numpy.product(pixel_data.shape) * mean_image_value
+                            numpy.prod(pixel_data.shape) * mean_image_value
                         )
                 #
                 # Create a labels matrix that grids the image to the dimensions
@@ -1162,7 +1162,7 @@ to the foreground pixels or the background pixels.
 
                 if image.has_mask:
                     grid[numpy.logical_not(image.mask)] = 0
-                
+
                 #
                 # Do the math per label
                 #
@@ -1248,8 +1248,8 @@ to the foreground pixels or the background pixels.
                 if len(value) != 1 or not numpy.isfinite(value[0]):
                     value = 0.0
                 else:
-                    value = float(value)
-                    
+                    value = float(value[0])
+
                 workspace.add_measurement(
                     "Image",
                     "{}_{}_{}_{:d}".format(
@@ -1274,7 +1274,7 @@ to the foreground pixels or the background pixels.
             pixel_data = image.pixel_data
             if image.has_mask:
                 pixel_data = pixel_data[image.mask]
-            pixel_count = numpy.product(pixel_data.shape)
+            pixel_count = numpy.prod(pixel_data.shape)
             if pixel_count == 0:
                 percent_maximal = 0
                 percent_minimal = 0
@@ -1324,7 +1324,7 @@ to the foreground pixels or the background pixels.
             ("Volume", F_TOTAL_VOLUME) if volumetric else ("Area", F_TOTAL_AREA)
         )
 
-        pixel_count = numpy.product(pixels.shape)
+        pixel_count = numpy.prod(pixels.shape)
         if pixel_count == 0:
             pixel_sum = 0
             pixel_mean = 0
@@ -1397,7 +1397,7 @@ to the foreground pixels or the background pixels.
             if image.has_mask:
                 pixel_data = numpy.array(pixel_data)  # make a copy
                 masked_pixels = pixel_data[image.mask]
-                pixel_count = numpy.product(masked_pixels.shape)
+                pixel_count = numpy.prod(masked_pixels.shape)
                 if pixel_count > 0:
                     pixel_data[~image.mask] = numpy.mean(masked_pixels)
                 else:

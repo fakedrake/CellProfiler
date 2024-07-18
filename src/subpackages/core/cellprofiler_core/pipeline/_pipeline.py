@@ -162,7 +162,7 @@ class Pipeline:
         self.__image_plane_list = []
 
         self.__needs_headless_extraction = False
-        
+
         self.__undo_stack = []
         self.__volumetric = False
 
@@ -179,7 +179,7 @@ class Pipeline:
 
     def volumetric(self):
         return self.__volumetric
-    
+
     def set_needs_headless_extraction(self, value):
         self.__needs_headless_extraction = value
 
@@ -621,7 +621,7 @@ class Pipeline:
             prenote,note,postnote = re.split("(?P<note>\|notes:\[.*?\]\|)",attribute_string)
             attribute_strings = prenote[1:].split("|")
             attribute_strings += [note[1:-1]]
-            attribute_strings += postnote[:-1].split("|") 
+            attribute_strings += postnote[:-1].split("|")
         else:
             #old or weird pipeline without notes
             attribute_strings = attribute_string[1:-1].split("|")
@@ -706,7 +706,7 @@ class Pipeline:
         headers = {
                       'Accept': 'text/x-bibliography; style=apa',
                     }
-        
+
         lines.append("Please cite the following when using CellProfiler: Stirling, D. R., Swain-Bowden, M. J., Lucas, A. M., Carpenter, A. E., Cimini, B. A., & Goodman, A. (2021). CellProfiler 4: improvements in speed, utility and usability. In BMC Bioinformatics (Vol. 22, Issue 1). Springer Science and Business Media LLC. https://doi.org/10.1186/s12859-021-04344-9")
         lines.append("")
         for module in self.modules(exclude_disabled=False):
@@ -720,10 +720,10 @@ class Pipeline:
                     f"{doi_text} {requests.get(doi_link, headers=headers).content.decode('utf-8')}"
                     for doi_text, doi_link in doi_link_list.items()
                 ]
-                
+
                 lines.append(fmt % (module.module_num, module.module_name))
                 lines.append("\n".join(citation_list))
-                
+
                 lines.append("")
         fd.write("\n".join(lines))
 
@@ -919,7 +919,7 @@ class Pipeline:
         workspace = Workspace(
             self, None, None, None, measurements, image_set_list, frame
         )
-        
+
         if len(self.__modules)>1:
             from cellprofiler_core.modules.metadata import Metadata
             if type(self.__modules[1]) == Metadata:

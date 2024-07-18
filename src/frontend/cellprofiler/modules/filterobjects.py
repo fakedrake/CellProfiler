@@ -383,7 +383,7 @@ with data processed as 3D.
             False,
             doc="""
 Select *Yes* to create an object set from objects that did not pass your filter.
-            
+
 This may be useful if you want to make use of the negative (filtered out) population as well."""
         )
 
@@ -703,10 +703,10 @@ value will be retained.""".format(
                     )
                 if fuzzy_feature == '':
                     raise ValidationError(
-                        f"""The classifier {self.rules_file_name}, requires the measurement "{feature}", but that 
+                        f"""The classifier {self.rules_file_name}, requires the measurement "{feature}", but that
 measurement is not available at this stage of the pipeline. Consider adding modules to produce the measurement.""",
                         self.rules_file_name
-                    )              
+                    )
 
     def run(self, workspace):
         """Filter objects for this image set, display results"""
@@ -1184,7 +1184,7 @@ measurement is not available at this stage of the pipeline. Consider adding modu
         feature_vector = numpy.column_stack(
             [
                 workspace.measurements[
-                    object_name, 
+                    object_name,
                     self.rules.Rule.return_fuzzy_measurement_name(
                         workspace.measurements.get_measurement_columns(),
                         object_name,
@@ -1430,7 +1430,7 @@ measurement is not available at this stage of the pipeline. Consider adding modu
                                       feature_name.startswith(s)), feature_name.split("_", 1))
             features_list.append((obj, feature_name))
         return features_list
-        
+
 #
 # backwards compatibility
 #

@@ -12,7 +12,7 @@ from cellprofiler_core.setting.subscriber import LabelListSubscriber
 import cellprofiler.gui.help.content
 import cellprofiler.icons
 
-__doc__ = """\
+__doc__ = """
 MeasureObjectSizeShape
 ======================
 
@@ -64,7 +64,7 @@ ellipse with the same second-moments as each object.
 -  *FormFactor:* *(2D only)* Calculated as 4\*π\*Area/Perimeter\ :sup:`2`. Equals 1
    for a perfectly circular object.
 -  *Convex Area:* The area of a convex polygon containing the whole object.
-   Best imagined as a rubber band stretched around the object. 
+   Best imagined as a rubber band stretched around the object.
 -  *Solidity:* The proportion of the pixels in the convex hull that are
    also in the object, i.e., *ObjectArea/ConvexHullArea*.
 -  *Extent:* The proportion of the pixels (2D) or voxels (3D) in the bounding box
@@ -102,8 +102,8 @@ ellipse with the same second-moments as each object.
 -  *Orientation:* *(2D only)* The angle (in degrees ranging from -90 to 90 degrees)
    between the x-axis and the major axis of the ellipse that has the
    same second-moments as the region.
--  *Compactness:* *(2D only)* Calculated as Perimeter\ :sup:`2`/4\*π\*Area, related to 
-   Form Factor. A filled circle will have a compactness of 1, with irregular objects or 
+-  *Compactness:* *(2D only)* Calculated as Perimeter\ :sup:`2`/4\*π\*Area, related to
+   Form Factor. A filled circle will have a compactness of 1, with irregular objects or
    objects with holes having a value greater than 1.
 -  *MaximumRadius:* *(2D only)* The maximum distance of any pixel in the object to
    the closest pixel outside of the object. For skinny objects, this is
@@ -126,7 +126,7 @@ ellipse with the same second-moments as each object.
    While there is no limit to the order which can be calculated (and
    indeed you could add more by adjusting the code), the higher order
    polynomials carry less information.
--  *Spatial Moment features:* *(2D only)* A series of weighted averages 
+-  *Spatial Moment features:* *(2D only)* A series of weighted averages
    representing the shape, size, rotation and location of the object.
 -  *Central Moment features:* *(2D only)* Similar to spatial moments, but
    normalized to the object's centroid. These are therefore not influenced
@@ -139,7 +139,7 @@ ellipse with the same second-moments as each object.
    they primarily describe the shape of the object.
 -  *Inertia Tensor features:* *(2D only)* A representation of rotational
    inertia of the object relative to it's center.
--  *Inertia Tensor Eigenvalues features:* *(2D only)* Values describing 
+-  *Inertia Tensor Eigenvalues features:* *(2D only)* Values describing
    the movement of the Inertia Tensor array.
 
 
@@ -403,7 +403,7 @@ class MeasureObjectSizeShape(Module):
             doc="""\
 Select *{YES}* to calculate additional statistics for object moments
 and intertia tensors in **2D mode**. These features should not require much additional time
-to calculate, but do add many additional columns to the resulting output 
+to calculate, but do add many additional columns to the resulting output
 files.
 
 In **3D mode** this setting enables the Solidity measurement, which can be time-consuming
@@ -781,7 +781,7 @@ module.""".format(
                 # but we need to expand the slice out by one voxel in each direction, or surface area freaks out
                 volume= labels[max(props['bbox-0'][index]-1,0):min(props['bbox-3'][index]+1,labels.shape[0]),
                           max(props['bbox-1'][index]-1,0):min(props['bbox-4'][index]+1,labels.shape[1]),
-                          max(props['bbox-2'][index]-1,0):min(props['bbox-5'][index]+1,labels.shape[2])] 
+                          max(props['bbox-2'][index]-1,0):min(props['bbox-5'][index]+1,labels.shape[2])]
                 volume = volume == label
                 verts, faces, _normals, _values = skimage.measure.marching_cubes(
                     volume,
