@@ -25,7 +25,7 @@ builtin_modules = {
     "erodeimage": "ErodeImage",
     "erodeobjects": "ErodeObjects",
     "expandorshrinkobjects": "ExpandOrShrinkObjects",
-    "exporttodatabase": "ExportToDatabase",
+    # "exporttodatabase": "ExportToDatabase",
     "exporttospreadsheet": "ExportToSpreadsheet",
     "fillobjects": "FillObjects",
     "filterobjects": "FilterObjects",
